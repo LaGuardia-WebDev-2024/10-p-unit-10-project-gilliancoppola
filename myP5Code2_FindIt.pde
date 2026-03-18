@@ -1,13 +1,18 @@
-var paulXPos = [];
-var paulYPos = [];
-var paul = "⭐️";
-var paulTotal = 100;
+var guitarXPos = [];
+var guitarYPos = [];
+var guitar = "🎸";
+var guitarTotal = 50;
+var pianoXPos = [];
+var pianoYPos = [];
+var piano = "🎹";
 
-var johnXPos = [];
-var johnYPos = [];
-var john = "🪐";
-var johnTotal = 3;
-var johnFound = 0;
+var pianoTotal = 50;
+
+var drumsXPos = [];
+var drumsYPos = [];
+var drums = "🥁";
+var drumsTotal = 3;
+var drumsFound = 0;
 
 setup = function() {
    size(600, 450); 
@@ -32,11 +37,11 @@ mouseClicked = function(){
 }
 
 var check = function(xClick, yClick){
-  for(var i = 0; i < johnXPos.length; i++){
-    if(dist(xClick - 5, yClick - 5, johnXPos[i], johnYPos[i])<15){
-      johnXPos.splice(i, 1);
-      johnYPos.splice(i, 1);
-      johnFound++;
+  for(var i = 0; i < drumsXPos.length; i++){
+    if(dist(xClick - 5, yClick - 5, drumsXPos[i], drumsYPos[i])<15){
+      drumsXPos.splice(i, 1);
+      drumsYPos.splice(i, 1);
+      drumsFound++;
     }
   }
 }
@@ -47,41 +52,53 @@ var display = function(){
   fill(200,200,0);
   textSize(20);
 
-  for(var i = 0; i < johnXPos.length; i ++){
-    text(john, johnXPos[i], johnYPos[i]);
+  for(var i = 0; i < drumsXPos.length; i ++){
+    text(drums, drumsXPos[i], drumsYPos[i]);
   }
 
-  for(var i = 0; i < paulXPos.length; i ++){
-    text(paul, paulXPos[i], paulYPos[i]);
+  for(var i = 0; i < guitarXPos.length; i ++){
+    text(guitar, guitarXPos[i], guitarYPos[i]);
+  }
+
+  for(var i = 0; i < pianoXPos.length; i ++){
+    text(piano, pianoXPos[i], pianoYPos[i]);
   }
 
   fill(0,0,0);
   rect(0,400,600,50);
   fill(255,255,255);
-  text("Find The " + john + "s   |   " + john + " " + johnFound + "/" + johnTotal, 0, 425);
+  text("Find The " + drums + "s   |   " + drums + " " + drumsFound + "/" + drumsTotal, 0, 425);
 
-  if(johnFound == johnTotal){
-    fill(0, 200, 200);
+  if(drumsFound == drumsTotal){
+    fill(82, 204, 255);
     textSize(50);
-    text("Press 'r' to repault \nthe game", 50, 200);
+    text("Press 'r' to restart \nthe game", 50, 200);
   }
 }
 
 var reset = function(){
-  paulXPos = [];
-  paulYPos = [];
-  johnXPos = [];
-  johnYPos = [];
-  johnFound = 0;
+  guitarXPos = [];
+  guitarYPos = [];
+  pianoXPos = [];
+  pianoYPos = [];
+  drumsXPos = [];
+  drumsYPos = [];
+  drumsFound = 0;
 
 
-  for(var i = 0; i < paulTotal; i++){
-    paulXPos.push(random(0,600));
-    paulYPos.push(random(0,400));
+  for(var i = 0; i < guitarTotal; i++){
+    guitarXPos.push(random(0,600));
+    guitarYPos.push(random(0,400));
   }
 
-  for(var i = 0; i < johnTotal; i++){
-    johnXPos.push(random(0,600));
-    johnYPos.push(random(0,400));
+   for(var i = 0; i < pianoTotal; i++){
+    pianoXPos.push(random(0,600));
+    pianoYPos.push(random(0,400));
+  }
+
+
+  for(var i = 0; i < drumsTotal; i++){
+    drumsXPos.push(random(0,600));
+    drumsYPos.push(random(0,400));
   }
 }

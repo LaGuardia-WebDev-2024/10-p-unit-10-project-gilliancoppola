@@ -1,12 +1,19 @@
+//X and Y variables and stuff
 var guitarXPos = [];
 var guitarYPos = [];
 var guitar = "🎸";
-var guitarTotal = 50;
+var guitarTotal = 40;
+
 var pianoXPos = [];
 var pianoYPos = [];
 var piano = "🎹";
 
-var pianoTotal = 50;
+var pianoTotal = 40;
+
+var violinXPos = [];
+var violinYPos = [];
+var violin = "🎻";
+var violinTotal = 40;
 
 var drumsXPos = [];
 var drumsYPos = [];
@@ -52,6 +59,14 @@ var display = function(){
   fill(200,200,0);
   textSize(20);
 
+i = 0
+
+// violins
+  while(i<400){
+    text(violin, violinXPos[i], violinYPos[i]);
+    i ++;
+  }
+
   for(var i = 0; i < drumsXPos.length; i ++){
     text(drums, drumsXPos[i], drumsYPos[i]);
   }
@@ -60,6 +75,7 @@ var display = function(){
     text(guitar, guitarXPos[i], guitarYPos[i]);
   }
 
+//pianos
   for(var i = 0; i < pianoXPos.length; i ++){
     text(piano, pianoXPos[i], pianoYPos[i]);
   }
@@ -84,6 +100,9 @@ var reset = function(){
   drumsXPos = [];
   drumsYPos = [];
   drumsFound = 0;
+  violinXPos = [];
+  violinYPos = [];
+
 
 
   for(var i = 0; i < guitarTotal; i++){
@@ -101,4 +120,10 @@ var reset = function(){
     drumsXPos.push(random(0,600));
     drumsYPos.push(random(0,400));
   }
+
+  for(var i = 0; i < violinTotal; i++){
+    violinXPos.push(random(0,600));
+    violinYPos.push(random(0,400));
+  }
+
 }

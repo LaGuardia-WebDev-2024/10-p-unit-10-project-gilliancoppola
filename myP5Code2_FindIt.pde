@@ -43,6 +43,8 @@ mouseClicked = function(){
   check(mouseX, mouseY);
 }
 
+
+
 var check = function(xClick, yClick){
   for(var i = 0; i < drumsXPos.length; i++){
     if(dist(xClick - 5, yClick - 5, drumsXPos[i], drumsYPos[i])<15){
@@ -56,8 +58,14 @@ var check = function(xClick, yClick){
 var display = function(){
   background(100,100,100);
 
+if(mouseClicked && mouseY<200){
+background(0,0,0)
+}
+
   fill(200,200,0);
   textSize(20);
+
+
 
 i = 0
 
